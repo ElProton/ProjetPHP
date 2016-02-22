@@ -2,7 +2,7 @@
 window.addEventListener("load", dessinerCarte);
 
 function dessinerCarte(){ 
-	var map = L.map('cartecampus').setView([50.6, 3.13], 16);
+	var map = L.map('map-leaflet').setView([50.6, 3.13], 16);
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '©️ <a href="http://osm.org/copyright">OpenStreetMap>/a> contributors'
     }).addTo(map);
