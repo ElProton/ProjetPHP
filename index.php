@@ -3,14 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <title></title>
-        <link type="text/css" rel="stylesheet" href="index.css" />
+        <link type="text/css" rel="stylesheet" href="css/index.css" />
         <script src="js/leaflet-src.js"></script>
     </head>
     <body>
-        <header>
-            <h1></h1>Bonjour, nous sommes Patricks, bienvenue sur notre site !</h1>
-        </header>
-        
+        <?php
+            require("includes/header.php");
+        ?>
         <section>
             <h2>Réponse de la demande</h2>
         </section>
