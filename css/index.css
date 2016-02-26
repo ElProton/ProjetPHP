@@ -1,5 +1,24 @@
+*
+{
+    margin: 0;
+    padding :0;
+}
+
 
 .map-leaflet {
                 width : 500px;
                 height : 300px;
             }
+
+header
+{
+    background-image: url("../img/banner-header.jpg");
+    padding: 5px;
+    height: 150px;
+    background-position: 0px 500px;
+}
+
+body
+{
+    background-image: url("../img/background.jpg");
+}
