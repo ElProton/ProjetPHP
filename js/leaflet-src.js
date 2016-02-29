@@ -3415,7 +3415,7 @@ L.Icon.Default = L.Icon.extend({
 			throw new Error('Couldn\'t autodetect L.Icon.Default.imagePath, set it manually.');
 		}
 
-		return path + '/marker-' + name + '.png';
+		return  'img/marker-' + name + '.png';
 	}
 });
 

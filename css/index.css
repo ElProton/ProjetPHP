@@ -23,3 +23,30 @@ body
 {
     background-image: url("../img/background.jpg");
 }
+
+footer
+{
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    background-color: rgb(10, 81, 150);
+    text-align: center;
+    color: white;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+#formulaire
+{
+    background-color: rgba(29, 21, 161, 0.2);
+    height: 45%;
+    width: 45%;    
+}
+
+#result
+{
+    background-color: rgba(29, 21, 161, 0.2);
+    height: 45%;
+    width: 45%;
+}

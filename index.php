@@ -6,7 +6,7 @@
         <link type="text/css" rel="stylesheet" href="css/index.css" />
         <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
         
-        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-src.js"></script>
         <script src="js/formChoice.js"></script>
         <script src="js/index.js"></script>
     </head>
@@ -14,13 +14,13 @@
         <?php
             require("includes/header.php");
         ?>
-        <section>
+        <section id="result">
             <h2>Réponse de la demande</h2>
             <p>
                <?php require("includes/traitement.php"); ?>
             </p>
         </section>
-        <section>
+        <section id="formulaire">
             <h2>Formulaires</h2>
             <p>
                 <select>
@@ -51,10 +51,10 @@
             </p>
             
             
-            <div id="map-leaflet">
-            </div>
-            <div id="formulaire">
-                
+            
+            <div>
+                <div id="map-leaflet">
+                </div>
                 <?php
                     switch($type)
                     {
@@ -76,7 +76,7 @@
         </section>
         
         <footer>
-            <span class="center">Réalisé par Valentin VAMOUR et Ryan LEFEBVRE - Tous droits réservés ©</span>
+            <span>Réalisé par Valentin VAMOUR et Ryan LEFEBVRE - Tous droits réservés ©</span>
             
         </footer>
     </body>
