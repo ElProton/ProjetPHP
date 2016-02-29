@@ -17,7 +17,7 @@
 	}
 	echo " </select>";
 	echo "<label> Date : </label>";
-	echo "<select>";
+	echo "<select class='modificationDate'>";
 	for ($i = 1;$i<= 31; $i++){
 		echo "<option value = '".$i."'>".$i."</option>";
 	}
@@ -32,14 +32,14 @@
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
 	echo "</select> <br />";
-	echo "<fieldset>";
+	echo "<fieldset class='optionsMeteo'>";
 	echo "<legend> Options </legend>";
 	foreach ($optionsBase as $option){
-		echo "<input type= 'checkbox' checked = 'true' value= '".$option."'>";
+		echo "<input type= 'checkbox' checked value= '".$option."'>";
 		echo "<label> ".$option."</label>";
 	}
 	foreach ($options as $option){
-		echo "<input type= 'checkbox' checked = 'false' value= '".$option."'>";
+		echo "<input type= 'checkbox' value= '".$option."'>";
 		echo "<label> ".$option."</label>";
 	}
 ?>
