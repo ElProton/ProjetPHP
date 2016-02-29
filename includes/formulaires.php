@@ -1,7 +1,8 @@
 <?php
 	$FORM = Array("Jour", "Mois");
 	$MOUNTHS = Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
-	$options = Array("température", "humidité", "pression", "précipitations", "directionVent", "vitesseVent");
+	$optionsBase = Array("température", "directionVent", "vitesseVent", "précipitations", "humidité", "nébulosité");
+ 	$options = Array("pression","pointRosée", "hauteurNeige" );
 
 	echo "<form action ='formulaireJour.php method = 'post'>";
 	echo "<fieldset id = 'FormulaireJour'>";
@@ -30,9 +31,12 @@
 	echo "</select> <br />";
 	echo "<fieldset>";
 	echo "<legend> Options </legend>";
+	foreach ($optionsBase as $option){
+		echo "<label> ".$option." :</label>";
+		echo "<input type= 'checkbox' checked = 'true' value= '".$option."'>";
+	}
 	foreach ($options as $option){
 		echo "<label> ".$option." :</label>";
-		echo "<input type= 'checkbox' value= '".$option."'>";
+		echo "<input type= 'checkbox' checked = 'false' value= '".$option."'>";
 	}
-	// Faire des options précochées? Note: Faire 2 tableaux options
 ?>
