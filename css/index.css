@@ -8,7 +8,7 @@
 #map-leaflet
 {
     width : 100%;
-    height : 300px;
+    height : 450px;
 }
 
 header
@@ -68,11 +68,10 @@ footer
 {
     background-color: rgb(220, 220, 220);
     border: 5px solid rgb(200, 200, 200);
-    height: 600px;
     width: 45%;    
     float: left;
     margin: 5px;
-    padding: 10px 0px;
+    padding: 20px 0px;
 }
 
 #result
@@ -81,7 +80,7 @@ footer
     background-color: rgb(220, 220, 220);
     border: 5px solid rgb(200, 200, 200);
     height: 45px;
-    width: 35%;
+    width: 50%;
     margin: 5px;
     overflow: auto;  
 }
@@ -90,3 +89,29 @@ footer
 {
     clear: both;
 }
+
+fieldset
+{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+fieldset legend
+{
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.optionsMeteo
+{
+    padding: 10px;
+}
+
+.optionsMeteo ul {
+  margin-left: 20%;
+  list-style: none;
+  float: left;
+}
+
