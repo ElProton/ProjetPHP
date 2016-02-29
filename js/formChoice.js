@@ -2,6 +2,9 @@ function init()
 {
     var select = document.querySelector("section p select");
     select.addEventListener("change", changeSelect);
+    
+    var form = document.getElementById("formulaire");
+
 }
 
 function changeSelect()
@@ -12,11 +15,11 @@ function changeSelect()
     switch(select.value)
     {
         case "jour":
-            form.innerHTML = "<?php include('includes/formulaires.php'); ?>";
+            document.location.href="index.php?type=jour"
         break;
         
         case "mois":
-        
+            document.location.href="index.php?type=mois"
         break;
         
         default:
