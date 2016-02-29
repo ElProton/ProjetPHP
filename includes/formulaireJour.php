@@ -15,18 +15,18 @@
 		echo "<option value = '".$stationArray[1]."' > ".$stationArray[1]."</option>";
 		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
-	echo " </select>";
+	echo " </select> <br />";
 	echo "<label> Date : </label>";
 	echo "<select class='modificationDate'>";
 	for ($i = 1;$i<= 31; $i++){
 		echo "<option value = '".$i."'>".$i."</option>";
 	}
-	echo "</select> <br />";
+	echo "</select>";
 	echo "<select>";
 	foreach ($MOUNTHS as $mounths){
 		echo "<option value = '".$mounths."'> ".$mounths." </option>";
 	}
-	echo "</select> <br />";
+	echo "</select>";
 	echo "<select>";
 	for ($i = 1996; $i<= 2016; $i++){
 		echo "<option value = '".$i."'> ".$i." </option>";
