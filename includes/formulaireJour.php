@@ -8,15 +8,17 @@
 	echo "<fieldset id = 'FormulaireJour'>";
 	echo "<legend> Jour </legend>";
 	echo "<label> Votre Station : </label>";
-	$csvFile = fopen("../src/postesSynop.csv");
-	$stationArray = fgetcsv( resource $csvFile [, int $length = 0 [, string $delimiter = ";" [, string $enclosure = '"' [, string $escape = "\n" ]]]] );
+	echo "<select>";
+	$csvFile = fopen("src/postesSynop.csv", "r");
+	$stationArray = fgetcsv( $csvFile, 1000, ";");
 	while ($stationArray != NULL){
 		echo "<option value = '".$stationArray[1]."' > ".$stationArray[1]."</option>";
+		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
-	echo "<select> </select>";
+	echo " </select>";
 	echo "<label> Date : </label>";
 	echo "<select>";
-	for ($i = 1;i<= 31; i++){
+	for ($i = 1;$i<= 31; $i++){
 		echo "<option value = '".$i."'>".$i."</option>";
 	}
 	echo "</select> <br />";
