@@ -15,11 +15,11 @@ function changeSelect()
     switch(select.value)
     {
         case "jour":
-            document.location.href="index.php?type=jour"
+            document.location.href="index.php?type=jour";
         break;
         
         case "mois":
-            document.location.href="index.php?type=mois"
+            document.location.href="index.php?type=mois";
         break;
         
         default:

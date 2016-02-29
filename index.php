@@ -4,8 +4,11 @@
         <meta charset="utf-8" />
         <title></title>
         <link type="text/css" rel="stylesheet" href="css/index.css" />
-        <script src="js/leaflet-src.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
+        
+        <script src="js/leaflet.js"></script>
         <script src="js/formChoice.js"></script>
+        <script src="js/index.js"></script>
     </head>
     <body>
         <?php
@@ -13,6 +16,9 @@
         ?>
         <section>
             <h2>Réponse de la demande</h2>
+            <p>
+               <?php require("includes/traitement.php"); ?>
+            </p>
         </section>
         <section>
             <h2>Formulaires</h2>
@@ -44,28 +50,34 @@
                </select>
             </p>
             
+            
             <div id="map-leaflet">
             </div>
-            
             <div id="formulaire">
+                
                 <?php
                     switch($type)
                     {
                         case "jour":
-                            require('formulaireJour.php');
+                            require('includes/formulaireJour.php');
                         break;
                         
                         case "mois":
-                            require('formulaireMois.php');
+                            require('includes/formulaireMois.php');
                         break;
                         
                         default:
-                            require('formulaireJour.php');
+                            require('includes/formulaireJour.php');
                         break;
                     }
                 ?>
             </div>
             
         </section>
+        
+        <footer>
+            <span class="center">Réalisé par Valentin VAMOUR et Ryan LEFEBVRE - Tous droits réservés ©</span>
+            
+        </footer>
     </body>
 </html
