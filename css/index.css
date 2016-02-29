@@ -7,21 +7,48 @@
 
 #map-leaflet
 {
-    width : 500px;
+    width : 100%;
     height : 300px;
 }
 
 header
 {
-    background-image: url("../img/banner-header.jpg");
+    background-image: url("../img/header.jpg");
     padding: 5px;
-    height: 150px;
+    height: 75px;
     background-position: 0px 500px;
+}
+
+header p
+{
+    font-weight: bold;
+    font-size: 21pt;
+    color: white;
+    font-family: Arial;
+}
+
+header time
+{
+    position: absolute;
+    right: 13%;
+    top: 0px;
+    margin-left: 46px;
+}
+
+html
+{
+    background-color: rgb(230,230,230);
+    height: 100%;
 }
 
 body
 {
-    background-image: url("../img/background.jpg");
+    width: 75%;
+    display: block;
+    margin: auto;
+    background-color: white;
+    min-height: 100%;
+    
 }
 
 footer
@@ -39,14 +66,27 @@ footer
 
 #formulaire
 {
-    background-color: rgba(29, 21, 161, 0.2);
-    height: 45%;
+    background-color: rgb(220, 220, 220);
+    border: 5px solid rgb(200, 200, 200);
+    height: 600px;
     width: 45%;    
+    float: left;
+    margin: 5px;
+    padding: 10px 0px;
 }
 
 #result
 {
-    background-color: rgba(29, 21, 161, 0.2);
-    height: 45%;
-    width: 45%;
+    float: right;
+    background-color: rgb(220, 220, 220);
+    border: 5px solid rgb(200, 200, 200);
+    height: 45px;
+    width: 35%;
+    margin: 5px;
+    overflow: auto;  
+}
+
+.clear
+{
+    clear: both;
 }
