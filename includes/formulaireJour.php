@@ -34,12 +34,20 @@
 	echo "</select> <br />";
 	echo "<fieldset class='optionsMeteo'>";
 	echo "<legend> Options </legend>";
+    echo "<ul>";
 	foreach ($optionsBase as $option){
+        echo "<li>";
 		echo "<input type= 'checkbox' checked value= '".$option."'>";
 		echo "<label> ".$option."</label>";
+        echo "</li>";
 	}
+echo "</ul>";
+echo "<ul>";
 	foreach ($options as $option){
+        echo "<li>";
 		echo "<input type= 'checkbox' value= '".$option."'>";
 		echo "<label> ".$option."</label>";
+        echo "</li>";
 	}
+echo "</ul>"
 ?>
