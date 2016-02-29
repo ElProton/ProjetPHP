@@ -14,8 +14,7 @@
 header
 {
     background-image: url("../img/header.jpg");
-    padding: 5px;
-    height: 75px;
+    padding: 5px 15px;
     background-position: 0px 500px;
 }
 
@@ -80,7 +79,8 @@ footer
     height: 45px;
     width: 50%;
     margin: 5px;
-    overflow: auto;  
+    overflow: auto;
+    padding: 5px;
 }
 
 .clear
@@ -113,3 +113,10 @@ fieldset legend
   float: left;
 }
 
+
+.submitButton
+{
+    padding: 5px;
+    display: block;
+    margin: 5px auto;
+}

@@ -4,7 +4,7 @@
 	$optionsBase = Array("température", "directionVent", "vitesseVent", "précipitations", "humidité", "nébulosité");
  	$options = Array("pression","pointRosée", "hauteurNeige" );
 
-	echo "<form action ='formulaireJour.php method = 'post'>";
+	echo "<form action='index.php?type=jour' method='post'>";
 	echo "<fieldset id = 'FormulaireJour'>";
 	echo "<legend> Jour </legend>";
 	echo "<label> Votre Station : </label>";
@@ -51,5 +51,8 @@ echo "<ul>";
 	}
 echo "</ul>";
 echo "<br />";
-echo "<button type ='button' class = 'submitButton'> Submit </button> ";
+echo "</fieldset>";
+
+echo "<input type ='submit' class = 'submitButton' value=\"Consulter !\"/>";
+echo "</fieldset>";
 ?>
