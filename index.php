@@ -17,9 +17,30 @@
         <section>
             <h2>Formulaires</h2>
             <p>
-               <select>
-                <option value = "jour"> Jour </option>
-                <option value = "mois"> mois </option>
+                <select>
+                <?php
+                    if(isset($_GET['type']))
+                    {
+                        $type = $_GET['type'];
+                        
+                        if($type == "jour" || ($type != "jour" && $type != "mois"))
+                        {
+                            echo '<option selected value = "jour"> Jour </option>';
+                            echo '<option value = "mois"> Mois </option>';
+                        }
+                        else if($type == "mois")
+                        {
+                            echo '<option value = "jour"> Jour </option>';
+                            echo '<option selected value = "Mois"> mois </option>';
+                        }                        
+                    }
+                    else
+                    {
+                            $type = "jour";
+                            echo '<option selected value = "jour"> Jour </option>';
+                            echo '<option value = "mois"> Mois </option>';
+                    }
+                ?>
                </select>
             </p>
             
@@ -27,9 +48,21 @@
             </div>
             
             <div id="formulaire">
-                
                 <?php
-                    include("includes/formulaires.php");
+                    switch($type)
+                    {
+                        case "jour":
+                            require('formulaireJour.php');
+                        break;
+                        
+                        case "mois":
+                            require('formulaireMois.php');
+                        break;
+                        
+                        default:
+                            require('formulaireJour.php');
+                        break;
+                    }
                 ?>
             </div>
             
