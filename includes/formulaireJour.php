@@ -49,5 +49,7 @@ echo "<ul>";
 		echo "<label> ".$option."</label>";
         echo "</li>";
 	}
-echo "</ul>"
+echo "</ul>";
+echo "<br />";
+echo "<button type ='button' class = 'submitButton'> Submit </button> ";
 ?>
