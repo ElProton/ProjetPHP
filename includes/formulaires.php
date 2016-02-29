@@ -24,7 +24,7 @@
 	}
 	echo "</select> <br />";
 	echo "<select>";
-	for (i = 1996; i<= 2016; i++){
+	for ($i = 1996; $i<= 2016; $i++){
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
 	echo "</select> <br />";
