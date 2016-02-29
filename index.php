@@ -23,6 +23,7 @@
         <section id="formulaire">
             <h2>Formulaires</h2>
             <p>
+                Vous souhaitez des données pour un 
                 <select>
                 <?php
                     if(isset($_GET['type']))
@@ -48,6 +49,9 @@
                     }
                 ?>
                </select>
+               
+               <br/><br>
+               Vous pouvez selectionner une station en cliquant sur un marqueur !
             </p>
             
             
@@ -71,13 +75,13 @@
                         break;
                     }
                 ?>
-            </div>
             
+            </div>
         </section>
         
+        <div class="clear"></div>
         <footer>
             <span>Réalisé par Valentin VAMOUR et Ryan LEFEBVRE - Tous droits réservés ©</span>
-            
         </footer>
     </body>
 </html
