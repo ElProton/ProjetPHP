@@ -7,17 +7,18 @@
 	echo "<form action ='formulaireJour.php method = 'post'>";
 	echo "<fieldset id = 'FormulaireJour'>";
 	echo "<legend> Jour </legend>";
-	echo "<label> Vous voulez des données pour un : </label>";
-	echo "<select selected = 'Jour'>";
-	foreach ($FORM as $typeForm){
-		echo "<option value = '".$typeForm."'> ".$typeForm." </option>";
-	}
-	echo "</select> <br />";
 	echo "<label> Votre Station : </label>";
+	$csvFile = fopen("../src/postesSynop.csv");
+	$stationArray = fgetcsv( resource $csvFile [, int $length = 0 [, string $delimiter = ";" [, string $enclosure = '"' [, string $escape = "\n" ]]]] );
+	while ($stationArray != NULL){
+		echo "<option value = '".$stationArray[1]."' > ".$stationArray[1]."</option>";
+	}
 	echo "<select> </select>";
 	echo "<label> Date : </label>";
 	echo "<select>";
-	
+	for ($i = 1;i<= 31; i++){
+		echo "<option value = '".$i."'>".$i."</option>";
+	}
 	echo "</select> <br />";
 	echo "<select>";
 	foreach ($MOUNTHS as $mounths){
@@ -32,11 +33,11 @@
 	echo "<fieldset>";
 	echo "<legend> Options </legend>";
 	foreach ($optionsBase as $option){
-		echo "<label> ".$option." :</label>";
 		echo "<input type= 'checkbox' checked = 'true' value= '".$option."'>";
+		echo "<label> ".$option."</label>";
 	}
 	foreach ($options as $option){
-		echo "<label> ".$option." :</label>";
 		echo "<input type= 'checkbox' checked = 'false' value= '".$option."'>";
+		echo "<label> ".$option."</label>";
 	}
 ?>
