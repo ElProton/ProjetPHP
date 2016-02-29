@@ -8,3 +8,4 @@ function dessinerCarte(){
     }).addTo(map);
     var marker = L.marker([50.609614, 3.136635]).addTo(map)
        .bindPopup('Le bâtiment M5 <p>Formations en Informatique</p> ...');
+}
