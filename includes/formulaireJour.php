@@ -19,17 +19,17 @@
 	}
 	echo " </select> <br />";
 	echo "<label> Date : </label>";
-	echo "<select class='modificationDate'>";
+	echo "<select name='day' class='modificationDate'>";
 	for ($i = 1;$i<= 31; $i++){
 		echo "<option value = '".$i."'>".$i."</option>";
 	}
 	echo "</select>";
-	echo "<select>";
+	echo "<select name='mounth'>";
 	foreach ($MOUNTHS as $mounths){
-		echo "<option value = '".$mounths."'> ".$mounths." </option>";
+		echo "<option  value = '".$mounths."'> ".$mounths." </option>";
 	}
 	echo "</select>";
-	echo "<select>";
+	echo "<select name='year'>";
 	for ($i = 1996; $i<= 2016; $i++){
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
