@@ -58,8 +58,7 @@ function iChooseYou(event)
  */
 function modifieSelect(event)
 {
-    var query = "#stations option[data-insee='"+this.value+"']";
-    var selectOptions = document.querySelectorAll(query);
-    alert(query);
+    var query = '#stations option[data-insee="'+this.value+'"]';
+    var selectOptions = document.querySelector(query);
     selectOptions.selected = true;
 }
