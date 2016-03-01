@@ -1,5 +1,4 @@
 <?php
-	$FORM = Array("Jour", "Mois");
 	$MOUNTHS = Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
 	$optionsBase = Array("température", "directionVent", "vitesseVent", "précipitations", "humidité", "nébulosité");
  	$options = Array("pression","pointRosée", "hauteurNeige" );
@@ -9,8 +8,8 @@
 	echo "<legend> Jour </legend>";
 	echo "<label> Votre Station : </label>";
 	echo "<select id=\"stations\">";
-	$csvFile = fopen("src/postesSynop.csv", "r");
     
+	$csvFile = fopen("https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/postesSynop.csv", "r");
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
     $stationArray = fgetcsv( $csvFile, 1000, ";");
     
