@@ -10,9 +10,12 @@
 	echo "<label> Votre Station : </label>";
 	echo "<select>";
 	$csvFile = fopen("src/postesSynop.csv", "r");
+    
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
+    $stationArray = fgetcsv( $csvFile, 1000, ";");
+    
 	while ($stationArray != NULL){
-		echo "<option value = '".$stationArray[1]."' > ".$stationArray[1]."</option>";
+		echo "<option data-insee='".$stationArray[0]."' data-lon='".$stationArray[1]."' data-lat='".$stationArray[3]."' value='".$stationArray[1]."' > ".$stationArray[1]."</option>";
 		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
 	echo " </select> <br />";
