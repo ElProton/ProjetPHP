@@ -14,7 +14,7 @@
     $stationArray = fgetcsv( $csvFile, 1000, ";");
     
 	while ($stationArray != NULL){
-		echo "<option data-insee='".$stationArray[0]."' data-lon='".$stationArray[3]."' data-lat='".$stationArray[2]."' value='".$stationArray[1]."' > ".$stationArray[1]."</option>";
+		echo "<option data-insee='".$stationArray[0]."' data-lon='".$stationArray[3]."' data-lat='".$stationArray[2]."' value='".$stationArray[0]."' > ".$stationArray[1]."</option>";
 		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
 	echo " </select> <br />";
