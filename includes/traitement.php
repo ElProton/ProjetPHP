@@ -3,7 +3,7 @@
     {
         if(isset($_POST['submit_jour']))
         {
-            echo "<p>Jour !</p>";
+            
         }
         else
         {

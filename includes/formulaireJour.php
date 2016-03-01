@@ -7,7 +7,7 @@
 	echo "<fieldset id = 'FormulaireJour'>";
 	echo "<legend> Jour </legend>";
 	echo "<label> Votre Station : </label>";
-	echo "<select id=\"stations\">";
+	echo "<select id=\"stations\" name=\"stations\">";
     
 	$csvFile = fopen("https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/postesSynop.csv", "r");
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
