@@ -55,6 +55,6 @@ echo "</ul>";
 echo "<br />";
 echo "</fieldset>";
 
-echo "<input type ='submit' class = 'submitButton' value=\"Consulter !\"/>";
+echo "<input type ='submit' class = 'submitButton' name='submit_jour' value=\"Consulter !\"/>";
 echo "</fieldset>";
 ?>

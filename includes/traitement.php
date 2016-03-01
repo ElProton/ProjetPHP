@@ -1,7 +1,14 @@
 <?php
     if(isset($_POST['submit_jour']) || isset($_POST['submit_jour']))
     {
-        
+        if(isset($_POST['submit_jour']))
+        {
+            echo "<p>Jour !</p>";
+        }
+        else
+        {
+            
+        }
         
     }
     else
