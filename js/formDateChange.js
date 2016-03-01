@@ -18,7 +18,7 @@ function changeDay(event){
     if(choiceMois != null) {
         var jour = document.getElementById("modificationDate");
         console.log(jour);
-        if (choiceMois == 0 || choiceMois == 2 || choiceMois == 4) {
+        if (choiceMois == 0 || choiceMois == 2 || choiceMois == 4 || choiceMois == 6, choiceMois == 7, choiceMois == 9, choiceMois == 11) {
             var dayoptions = document.getElementsByClassName("dayOptions");
             if (dayoptions.length != 0) {
                 for (var i = 0; i <= dayoptions.length; i += 1) {
