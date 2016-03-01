@@ -8,7 +8,7 @@
 	echo "<fieldset id = 'FormulaireJour'>";
 	echo "<legend> Jour </legend>";
 	echo "<label> Votre Station : </label>";
-	echo "<select>";
+	echo "<select id=\"stations\">";
 	$csvFile = fopen("src/postesSynop.csv", "r");
     
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
