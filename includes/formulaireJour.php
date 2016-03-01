@@ -18,18 +18,18 @@
 		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
 	echo " </select> <br />";
-	echo "<label> Date : </label>";
-	echo "<select name='day' class='modificationDate'>";
-	for ($i = 1;$i<= 31; $i++){
+echo "<label> Date : </label>";
+	echo "<select id='modificationDate'>";
+	for ($i = 1;$i<= 28; $i++){
 		echo "<option value = '".$i."'>".$i."</option>";
 	}
 	echo "</select>";
-	echo "<select name='mounth'>";
+	echo "<select class='dateChange'>";
 	foreach ($MOUNTHS as $mounths){
-		echo "<option  value = '".$mounths."'> ".$mounths." </option>";
+		echo "<option value = '".$mounths."'> ".$mounths." </option>";
 	}
 	echo "</select>";
-	echo "<select name='year'>";
+	echo "<select class = 'dateChange'>";
 	for ($i = 1996; $i<= 2016; $i++){
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
