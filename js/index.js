@@ -15,7 +15,7 @@ function dessinerCarte() {
         var nom = l[i].textContent;
         var insee = l[i].dataset.insee;
         
-        addMarker([l[i].dataset.lat, l[i].dataset.lon], map);
+        addMarker([l[i].dataset.lon, l[i].dataset.lat], map);
     }
     
     
