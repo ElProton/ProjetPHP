@@ -18,7 +18,10 @@
         <section id="result">
             <h2>Réponse de la demande</h2>
             <p>
-               <?php require("includes/traitement.php"); ?>
+               <?php 
+                    require("includes/proxy.php");
+                    require("includes/traitement.php");
+                ?>
             </p>
         </section>
         <section id="formulaire">

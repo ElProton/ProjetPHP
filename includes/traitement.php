@@ -29,20 +29,84 @@
                     $infoArray = fgetcsv( $csvFile, 1000, ";");
                     $infoArray = fgetcsv( $csvFile, 1000, ";");
                     
+                    echo "<p>Données disponibles pour la date du ".$_POST['day']." ".$_POST['mounth']." ".$_POST['year']."</p>";
+                    
                     $found = false;
                     echo "<table>\n";
+                    
+                    $options = Array("température" => 7,
+                                     "directionVent" => 5,
+                                     "vitesseVent" => 6,
+                                     "précipitations" => 36,
+                                     "humidité" => 9,
+                                     "nébulosité" => 14,
+                                     "pression" => 20,
+                                     "pointRosée" => 8,
+                                     "hauteurNeige" => 34);      
+                                            
+                    $optionsLabel = Array("température" => "Température",
+                                     "directionVent" => "Direction du vent",
+                                     "vitesseVent" => "Vitesse du vent",
+                                     "précipitations" => "Précipitations",
+                                     "humidité" => "Humidité",
+                                     "nébulosité" => "Nébulosité",
+                                     "pression" => "Pression",
+                                     "pointRosée" => "Point de rosée",
+                                     "hauteurNeige" => "Hauteur de neige");             
+                    
                     
                     while(!$found && $infoArray != NULL)
                     {
                         if($infoArray[0] == $_POST['stations'] && $_POST['day'] == substr($infoArray[1], 6, 2))
                         {
-                            $optionsBase = Array("température", "directionVent", "vitesseVent", "précipitations", "humidité", "nébulosité");
-                            $options = Array("pression","pointRosée", "hauteurNeige" );
-                            
-                            
                             echo "<tr>\n";
                             echo "<td>".substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2)."</td>";
-                            echo "<td>".$infoArray[0]."</td>";
+                            echo "<td>";
+                            
+                            foreach($options as $key => $value)
+                            {
+                                if($_POST[$key]){
+                                    echo $optionsLabel[$key].": ";
+                                    
+                                    $info = $infoArray[$value];
+                                    
+                                    if($info == "mq")
+                                        echo "Aucune donnée<br/>";
+                                    else
+                                    {
+                                        switch($key)
+                                        {
+                                            case "température":
+                                                echo sprintf("%7.2f" ,floatval($info) - 273,15);
+                                                echo "°C";
+                                            break;
+                                            
+                                            case "directionVent":
+                                                echo $info."°";
+                                            break;
+                                            
+                                            case "vitesseVent":
+                                                echo sprintf("%7.2f", $info)." m/s";
+                                            break;
+                                            
+                                            case "précipitations":
+                                                echo $info." mm";
+                                            break;
+                                            
+                                            case "humidité":
+                                                echo $info." %";
+                                            break;
+                                            
+                                            case "nébulosité":
+                                                echo $info." octa";
+                                            break;
+                                        }
+                                        echo "<br/>";
+                                    }
+                                }
+                            }
+                            
+                            echo "</td>";
                             echo "</tr>\n";
                         }
                         
@@ -53,7 +117,7 @@
                 }
                 else
                 {
-                    echo "<!-- csvFile not found. -->";
+                    echo "<!-- csv file not found. -->";
                     echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
                 }
 
@@ -72,7 +136,7 @@
     }
     else
     {
-        echo "<!-- -->";
+        echo "<!-- No posts were sent -->";
         echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
     }
     
