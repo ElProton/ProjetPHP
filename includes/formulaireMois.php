@@ -1,7 +1,6 @@
 <?php
 	$MOUNTHS = Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
 	$optionsBase = Array("température", "directionVent", "vitesseVent", "précipitations", "humidité", "nébulosité");
- 	$options = Array("pression","pointRosée", "hauteurNeige" );
 
 	echo "<form action ='formulaireMois.php method = 'post'>";
 	echo "<fieldset id = 'FormulaireMois'>";
@@ -26,24 +25,18 @@
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
 	echo "</select> <br />";
-	echo "<fieldset class='optionsMeteo'>";
-	echo "<legend> Options </legend>";
+	echo "<B> Relevés proposés par la requête :</B>";
     echo "<ul>";
-	foreach ($optionsBase as $option){
         echo "<li>";
-		echo "<input type= 'checkbox' checked value= '".$option."'>";
-		echo "<label> ".$option."</label>";
+		echo "<I>température minimale</I>";
         echo "</li>";
-	}
-echo "</ul>";
-echo "<ul>";
-	foreach ($options as $option){
         echo "<li>";
-		echo "<input type= 'checkbox' value= '".$option."'>";
-		echo "<label> ".$option."</label>";
+		echo "<I>température maximale</I>";
         echo "</li>";
-	}
+        echo "<li>";
+		echo "<I>cumul quotidien des précipitations</I>";
+        echo "</li>";
 echo "</ul>";
 echo "<br />";
-echo "<button type ='button' class = 'submitButton'> Submit </button> ";
+echo "<button type ='button' class = 'submitButton'> Consulter! </button> ";
 ?>
