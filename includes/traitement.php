@@ -100,6 +100,19 @@
                                             case "nébulosité":
                                                 echo $info." octa";
                                             break;
+                                            
+                                            case "pression":
+                                                echo $info." Pa";
+                                            break;
+                                            
+                                            case "pointRosée":
+                                                echo sprintf("%7.2f" ,floatval($info) - 273,15);
+                                                echo "°C";
+                                            break;
+                                            
+                                            case "hauteurNeige":
+                                                echo $info." m";
+                                            break;
                                         }
                                         echo "<br/>";
                                     }
