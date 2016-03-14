@@ -1,13 +1,30 @@
 <?php
-    if(isset($_POST['submit_jour']) || isset($_POST['submit_jour']))
+    if(isset($_POST['submit_jour']) || isset($_POST['submit_jour']) || isset($_GET['stations']))
     {
-        if(isset($_POST['submit_jour']))
+        if(isset($_POST['submit_jour']) || isset($_GET['type']))
         {
-            if(isset($_POST['day']) 
-            && isset($_POST['mounth']) 
-            && isset($_POST['year'])
-            && isset($_POST['stations']))
+            if( (isset($_POST['day']) && isset($_POST['mounth']) && isset($_POST['year']) && isset($_POST['stations']))
+            ||
+                (isset($_GET['day'])&& isset($_GET['mounth'])&& isset($_GET['year'])&& isset($_GET['stations'])))
             {
+                
+                if(isset($_POST['day']))
+                {
+                    $day = $_POST['day'];
+                    $mounth = $_POST['mounth'];
+                    $year = $_POST['year'];
+                    $station = $_POST['stations'];
+                }
+                else
+                {
+                    $day = $_GET['day'];
+                    $mounth = $_GET['mounth'];
+                    $year = $_GET['year'];           
+                    $station = $_GET['stations'];         
+                }
+                
+                
+                
                 $date = Array("Janvier"   => "01", 
                               "Février"   => "02",
                               "Mars"      => "03",
@@ -21,7 +38,7 @@
                               "Novembre"  => "11",
                               "Décembre"  => "12");
                               
-                $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$_POST['year'].$date[$_POST['mounth']].".csv.gz";
+                $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
                 $csvFile = fopen($filename, "r");
                 
                 if($csvFile)
@@ -29,9 +46,8 @@
                     $infoArray = fgetcsv( $csvFile, 1000, ";");
                     $infoArray = fgetcsv( $csvFile, 1000, ";");
                     
-                    echo "<p>Données disponibles pour la date du ".$_POST['day']." ".$_POST['mounth']." ".$_POST['year']."</p>";
+                    echo "<p>Données disponibles pour la date du ".$day." ".$mounth." ".$year."</p>";
                     
-                    $found = false;
                     echo "<table>\n";
                     
                     $options = Array("température" => 7,
@@ -55,9 +71,9 @@
                                      "hauteurNeige" => "Hauteur de neige");             
                     
                     
-                    while(!$found && $infoArray != NULL)
+                    while($infoArray != NULL)
                     {
-                        if($infoArray[0] == $_POST['stations'] && $_POST['day'] == substr($infoArray[1], 6, 2))
+                        if($infoArray[0] == $station && $day == substr($infoArray[1], 6, 2))
                         {
                             echo "<tr>\n";
                             echo "<td>".substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2)."</td>";
@@ -65,7 +81,11 @@
                             
                             foreach($options as $key => $value)
                             {
-                                if($_POST[$key]){
+                                if($_POST[$key]
+                                ||
+                                (isset($_GET['day'])&&isset($_GET['mounth'])&& isset($_GET['year'])&& isset($_GET['stations']))
+                                  )
+                                {
                                     echo $optionsLabel[$key].": ";
                                     
                                     $info = $infoArray[$value];
@@ -141,9 +161,14 @@
                 echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
             }
         }
-        else
+        else if(isset($_POST['submit_mois']) )
         {
             //Mois
+        }
+        else
+        {
+            echo "<!-- Unknown type of form -->";
+            echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";            
         }
         
     }
