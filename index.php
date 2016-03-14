@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <title></title>
-        <link type="text/css" rel="stylesheet" href="css/index.css" />
+        <link id="main_style" type="text/css" rel="stylesheet" href="css/index.css" />
         <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
         
         <script src="js/leaflet-src.js"></script>
         <script src="js/formChoice.js"></script>
         <script src="js/index.js"></script>
         <script src="js/formDateChange.js"></script>
+        <script src="js/woof.js"></script>
     </head>
     <body>
         <?php
