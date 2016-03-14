@@ -39,7 +39,7 @@ echo "<label> Date : </label>";
     echo "<ul>";
 	foreach ($optionsBase as $option){
         echo "<li>";
-		echo "<input name='".$option."' type= 'checkbox' checked value= '".$option."'>";
+		echo "<input name='".$option."' type= 'checkbox' checked='checked' value= '".$option."' />";
 		echo "<label> ".$option."</label>";
         echo "</li>";
 	}
@@ -47,7 +47,7 @@ echo "</ul>";
 echo "<ul>";
 	foreach ($options as $option){
         echo "<li>";
-		echo "<input name='".$option."' type= 'checkbox' value= '".$option."'>";
+		echo "<input name='".$option."' type= 'checkbox' value= '".$option."' />";
 		echo "<label> ".$option."</label>";
         echo "</li>";
 	}

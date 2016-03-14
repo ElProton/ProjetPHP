@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>VaryMeteo - Back to the past meteo !</title>
         <link id="main_style" type="text/css" rel="stylesheet" href="css/index.css" />
         <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
         
@@ -18,12 +18,10 @@
         ?>
         <section id="result">
             <h2>Réponse de la demande</h2>
-            <p>
                <?php 
                     require("includes/proxy.php");
                     require("includes/traitement.php");
                 ?>
-            </p>
         </section>
         <section id="formulaire">
             <h2>Formulaires</h2>
@@ -37,13 +35,13 @@
                         
                         if($type == "jour" || ($type != "jour" && $type != "mois"))
                         {
-                            echo '<option selected value = "jour"> Jour </option>';
-                            echo '<option value = "mois"> Mois </option>';
+                            echo '<option value="jour" selected="selected"> Jour </option>';
+                            echo '<option value="mois"> Mois </option>';
                         }
                         else if($type == "mois")
                         {
                             echo '<option value = "jour"> Jour </option>';
-                            echo '<option selected value = "Mois"> mois </option>';
+                            echo '<option value="Mois" selected="selected"> mois </option>';
                         }                        
                     }
                     else
@@ -55,7 +53,7 @@
                 ?>
                </select>
                
-               <br/><br>
+               <br/><br/>
                Vous pouvez selectionner une station en cliquant sur un marqueur !
             </p>
             
@@ -89,4 +87,4 @@
             <span>Réalisé par Valentin VAMOUR et Ryan LEFEBVRE - Tous droits réservés ©</span>
         </footer>
     </body>
-</html
+</html>
