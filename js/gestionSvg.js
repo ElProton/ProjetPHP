@@ -21,4 +21,10 @@ function drawBackground(width, height)
 }
 
 
-function drawGraph(){}
+function drawGraphTemperature(width, height){
+    var deltaX = (width - 100)/30;
+    var deltaY = (height -100)/40;
+    var xCursor = 0;
+    var yCursor = 0;
+
+}
