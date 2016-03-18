@@ -1,0 +1,189 @@
+*
+{
+    margin: 0;
+    padding :0;
+    font-family: Arial;
+}
+
+
+#map-leaflet
+{
+    width : 100%;
+    height : 450px;
+}
+
+ul
+{
+    list-style: none;
+}
+
+header
+{
+    height: 100px;
+    background-image: url("../img/header-kawaii.png");
+    padding: 5px 15px;
+    background-position: 0px 140px;
+}
+
+header p
+{
+    font-weight: bold;
+    font-size: 21pt;
+    color: white;
+    font-family: Arial;
+}
+
+
+
+header time
+{
+    position: absolute;
+    right: 13%;
+    top: 0px;
+    margin-left: 46px;
+}
+
+html
+{
+    background-image: url("../img/bg-kawaii.jpg");
+    height: 100%;
+}
+
+body
+{
+    width: 75%;
+    display: block;
+    margin: auto;
+    background-color: rgb(250, 203, 227);
+    min-height: 100%;
+    
+}
+
+footer
+{
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    background-color: pink;
+    text-align: center;
+    color: black;
+
+}
+
+#formulaire
+{
+    background-color: rgb(241, 154, 198);
+    border: 5px solid rgb(195, 46, 122);
+    width: 45%;    
+    float: left;
+    margin: 5px;
+    padding: 20px 0px;
+}
+
+#result
+{
+    float: right;
+    background-color: rgb(241, 154, 198);
+    border: 5px solid rgb(195, 46, 122);
+    width: 50%;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+}
+
+.clear
+{
+    clear: both;
+}
+
+fieldset
+{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(250, 163, 217);
+}
+
+fieldset legend
+{
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.optionsMeteo
+{
+    padding: 10px;
+}
+
+.optionsMeteo ul {
+  margin-left: 20%;
+  list-style: none;
+  float: left;
+}
+
+
+.submitButton
+{
+    padding: 5px;
+    display: block;
+    margin: 5px auto;
+}
+
+.mapButton
+{
+    display: block;
+    margin: auto;
+}
+
+table
+{
+    margin: 15px;
+}
+table tr td
+{
+    padding: 20px;
+}
+
+table tr:nth-child(2n+1)
+{
+    background-color: rgb(241, 175, 212);
+}
+
+table tr:nth-child(2n)
+{
+    background-color: rgb(225, 0, 127);
+}
+
+table tr td:nth-child(2n)
+{
+    width: 100%;
+}
+
+
+.hidden
+{
+    display: none;
+}
+
+.showed
+{
+    display: block;
+}
+
+.onglet
+{
+    height: 30px;
+    background-color: red;
+    color: pink;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+graph
+{
+    height: 250px;
+    width: 100%;
+}
