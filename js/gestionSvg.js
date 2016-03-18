@@ -28,3 +28,4 @@ function drawGraphTemperature(width, height){
     var yCursor = 0;
 
 }
+

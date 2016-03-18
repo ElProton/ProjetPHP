@@ -5,6 +5,10 @@
     font-family: Arial;
 }
 
+ul
+{
+    list-style: none;
+}
 
 #map-leaflet
 {
@@ -109,7 +113,6 @@ fieldset legend
 
 .optionsMeteo ul {
   margin-left: 20%;
-  list-style: none;
   float: left;
 }
 
@@ -148,5 +151,33 @@ table tr:nth-child(2n)
 
 table tr td:nth-child(2n)
 {
+    width: 100%;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.showed
+{
+    display: block;
+}
+
+.onglet
+{
+    height: 30px;
+    background-color: blue;
+    color: white;
+    margin-left: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+graph
+{
+    height: 250px;
     width: 100%;
 }

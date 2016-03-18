@@ -34,7 +34,7 @@
                          "pointRosée" => "Point de rosée",
                          "hauteurNeige" => "Hauteur de neige"); 
                          
-        if(isset($_POST['submit_jour']) || isset($_GET['type']))
+        if(isset($_POST['submit_jour']) || isset($_GET['type']) && $_GET['type'] == "jour")
         {
             if( (isset($_POST['day']) && isset($_POST['mounth']) && isset($_POST['year']) && isset($_POST['stations']))
             ||
@@ -97,7 +97,7 @@
                                         switch($key)
                                         {
                                             case "température":
-                                                echo sprintf("%7.2f" ,floatval($info) - 273,15);
+                                                echo sprintf("%7.2f" ,floatval($info) - 273.15);
                                                 echo "°C";
                                             break;
                                             
@@ -126,7 +126,7 @@
                                             break;
                                             
                                             case "pointRosée":
-                                                echo sprintf("%7.2f" ,floatval($info) - 273,15);
+                                                echo sprintf("%7.2f" ,floatval($info) - 273.15);
                                                 echo "°C";
                                             break;
                                             
@@ -161,48 +161,101 @@
                 echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
             }
         }
-        else if(isset($_POST['submit_mois']) )
+        else if(isset($_POST['submit_mois']) || isset($_GET['type']) && $_GET['type'] == "mois")
         {
             //Mois
-            if(isset($_POST['']) && isset($_POST['']))
+            if(isset($_POST['mounth']) && isset($_POST['year']))
             {
-                if(isset($_POST['day']))
-                {
-                    
-                }
-                else
-                {
-                    
-                }
+                $mounth  = $_POST['mounth'];
+                $year    = $_POST['year'];
+                $station = $_POST['stations'];
                 
                 $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
                 $csvFile = fopen($filename, "r");
                 
                 if($csvFile)
                 {
-                    
-                    $infoArray = fgetcsv( $csvFile, 1000, ";");
-                    $infoArray = fgetcsv( $csvFile, 1000, ";");
-                                        
-                    echo "<table>\n";
-                    echo "<thead>\n";
-                    
-                    echo "</thead>\n";
-                    echo "<tbody>\n";
-                    while($infoArray != NULL)
-                    {
+                    if($date[$mounth] != Date("m") || $year != Date("Y"))
+                    { 
+                        $infoArray = fgetcsv( $csvFile, 1000, ";");
+                        $infoArray = fgetcsv( $csvFile, 1000, ";");
                         
+                        echo "<div id='onglets'><span id='releves_onglet' class='onglet'>Relevés</span> <span class='onglet' id='graph_onglet'>Graphiques</span></div>";
+                        echo "<div id='releve' class='showed'>";
+                        echo "<table>\n";
+                            echo "<thead>\n";
+                            echo "<tr>";
+                                echo "<th></th>";
+                                echo "<th>Température minimale</th>";
+                                echo "<th>Température maximale</th>";
+                                echo "<th>Cumul des précipitations</th>";
+                            echo "</tr>";
+                            echo "</thead>\n";
+                        echo "<tbody>\n";
+                        
+                        $tmin =  10000000;
+                        $tmax = -10000000;
+                        $cumul = 0;
+                        $tab = Array();
+                                                    
+                        
+                        for($day = 1 ; $day != cal_days_in_month(CAL_GREGORIAN, intval($date[$mounth]), intval($year))+1 ; $day++)
+                        {
+                            echo "<td><a href=\"index.php?type=jour&stations=$station&day=$day&mounth=$mounth&year=$year\">".$day." ".$mounth." ".$year."</a></td>";
+                            
+                            $hour = "00h00";
+                            
+                            while($hour != "21h00")
+                            {
+                                if($infoArray[0] == $station)
+                                {
+                                    $temperature = floatval($infoArray[$options["température"]]) - 273.15 ;
+                                    $precipitations = floatval($infoArray[$options["précipitations"]]);
+                                    
+                                    $cumul += $precipitations;
+                                    
+                                    if($temperature < $tmin)
+                                        $tmin = $temperature;
+                                    if($temperature > $tmax)
+                                        $tmax = $temperature;
+                                        
+                                    $hour = substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2);
+                                    
+                                    
+                                }
+                                $infoArray = fgetcsv( $csvFile, 1000, ";");
+                            }
+                            
+                            echo "<td class='tmin'>".sprintf("%7.2f" ,floatval($tmin))."°C </td>";
+                            echo "<td class='tmax'>".sprintf("%7.2f" ,floatval($tmax))."°C </td>";
+                            echo "<td class='cumul'>".$cumul." mm</td>";
+                            echo "</tr>";
+                            $tmin =  10000000;
+                            $tmax = -10000000;
+                            $cumul = 0;
+                            
+                        }
+                        
+                        echo "</tbody>\n"; 
+                        echo "</table>\n";            
+                        echo "</div>";
+                        
+                        echo "<div id='graph' class='hidden'>";
+                        echo "</div>";
                     }
-                    
-                    echo "</tbody>\n"; 
-                    echo "</table>\n";            
-                    
+                    else
+                    {
+                            echo "<!-- Mounth is not finish. $year == ".Date("Y")."-->";
+                            echo "<p>Vous ne pouvez pas demander les rélévés d'un mois non terminé !<br/></p>";
+                            echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";                    
+                    }                
                 }
                 else
                 {
                     echo "<!-- csv file not found. -->";
-                    echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
+                    echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";  
                 }
+
             }
             else
             {

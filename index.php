@@ -9,8 +9,19 @@
         <script src="js/leaflet-src.js"></script>
         <script src="js/formChoice.js"></script>
         <script src="js/index.js"></script>
-        <script src="js/formDateChange.js"></script>
         <script src="js/woof.js"></script>
+        <?php
+            if(isset($_GET['type']) && $_GET['type'] == "mois")
+            {
+                echo "<script src=\"js/onglets.js\"></script>";
+                echo "<script src=\"js/gestionSvg.js\"></script>";
+            }
+            else if(isset($_GET['type']) && $_GET['type'] == "jour")
+            {
+                echo "<script src=\"js/formDateChange.js\"></script>";
+            }
+        ?>
+        
     </head>
     <body>
         <?php
