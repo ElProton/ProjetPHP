@@ -240,8 +240,17 @@
                         echo "</table>\n";            
                         echo "</div>";
                         
-                        echo "<div id='graph' class='hidden'>";
-                        echo "</div>";
+                        echo "<h2>Température minimum</h2>";
+						echo '<svg id="graphtmin" xmlns="http://www.w3.org/2000/svg">
+							 </svg>';
+						
+						echo "<h2>Température maximum</h2>";
+						echo '<svg id="graphtmax" xmlns="http://www.w3.org/2000/svg">
+							 </svg>';
+							 
+						/*echo '<svg id="graphprec" height="400" width="400" xmlns="http://www.w3.org/2000/svg">
+							 </svg>';*/
+							 
                     }
                     else
                     {

@@ -1,53 +1,83 @@
 function init(){
-    var graph = document.getElementById("graph");
-
-
-    drawBackground(200,200);
-    drawGraphTemperature(200,200);
+    draw();
 }
 
-function drawBackground(width, height)
+function draw()
 {
-    var deltaX = (width - 100)/30;
-    var deltaY = (height -100)/40;
-    var graph = document.getElementById("graph");
-    graph.innerHTML = "<svg viewbox='-300,-300,640,640' xmlns='http://www.w3.org/2000/svg'>";
-    graph.innerHTML = graph.innerHTML + "<line class ='axe' id='axeX' x1='0' y1='0' x2='"+ width +"' y2='0' style='fill:grey;stroke:#3BD200;stroke-width:1;'/>";
-    graph.innerHTML = graph.innerHTML + "<line class='axe' id='axey' x1='0' y1='0' x2='0' y2='-200' style='fill:grey;stroke:#3BD200;stroke-width:1;'/>";
-    var xCursor = deltaX/2;
-    var yCursor = deltaY/2;
-    for( var i = 0; i<=30 ; i++){
-        graph.innerHTML = graph.innerHTML + "<g transform='translate("+ xCursor +",25)'>" +
-            "<line class='marque' x1='0' y1='0' x2='0' y2='-3' style='fill:rgba(74, 41, 11, 0,6);stroke:#7d635b;stroke-width:1;'/>" +
-            "<text x='0' y='-4' fill='black' style='font-size: "+ deltaX +" cm'>"+i+"</text> </g>";
-        xCursor = xCursor + deltaX;
-    }
-    for (var i =0; i <= 8 ; i++){
-        graph.innerHTML = graph.innerHTML + "<g transform='translate(-35,"+ -((yCursor - 5)*5) +")'>" +
-            "<line class='marque' x1='35' y1='-5' x2='32' y2='-5' style='fill:rgba(74, 41, 11, 0,6);stroke:#7d635b;stroke-width:1;'/> " +
-            "<text x='0' y='0' fill='blue' style='font-size: "+ deltaY +" cm'>"+ i +"</text> </g>";
-        yCursor = yCursor + deltaY;
-    }
+	var graphs = document.querySelectorAll("svg");
+	console.log(graphs.length);
+	for(var i = 0 ; i < graphs.length ; i++)
+	{
+		var graph = graphs[i];
+		
+		var width = parseInt(window.getComputedStyle(graph).width, 10)-10;
+		var height = parseInt(window.getComputedStyle(graph).height, 10)-10;
+		
+		createLine(graphs[i].id, 10, height/2, width, height/2, "axe", "axeX");
+		
+		for(var j = 1 ; j < 32 ; j++)
+		{
+			createLine(graphs[i].id, (j+1)*12, (height/2)-5, (j+1)*12, (height/2)+5, "axe", ""+j+graphs[i].id);
+		}
+		
+	}
+	drawGraphTemperatureMin();
+	drawGraphTemperatureMax();
+}
+
+function createLine(svgID, x1, y1, x2, y2, className, ID)
+{
+	var svg = document.getElementById(svgID)
+	
+	var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+	line.setAttribute("x1", x1.toString());
+	line.setAttribute("y1", y1.toString());
+	line.setAttribute("x2", x2.toString());
+	line.setAttribute("y2", y2.toString());
+	line.setAttribute("class", className);
+	line.setAttribute("id", ID);
+	
+	svg.appendChild(line);
+	
+}
+
+function createRect(svgID, x, y, width, height, transform, className, ID)
+{
+	var svg = document.getElementById(svgID)
+	
+	var line = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+	line.setAttribute("x", x.toString());
+	line.setAttribute("y", y.toString());
+	line.setAttribute("width", width);
+	line.setAttribute("height", height.toString());
+	line.setAttribute("transform", transform);
+	line.setAttribute("class", className);
+	line.setAttribute("id", ID);
+	
+	svg.appendChild(line);	
 }
 
 
-function drawGraphTemperature(width, height){
-    var deltaX = (width - 100)/30;
-    var deltaY = (height -100)/40;
-    var xCursor = 0;
-    var graph = document.getElementById("graph");
-    var tempMin = document.getElementsByClassName("tmin");
-    var tempMax = document.getElementsByClassName("tmax");
-    var cumul = document.getElementsByClassName("cumul");
-    var len = tempMax.length;
-    for(var i=0; i < len ; i++){
-        graph.innerHTML = graph.innerHTML + "<g transform='translate(0,"+ xCursor +")'> " +
-            " <rect class='valeurMax' width='10' height='"+ (parseInt(tempMax[i])*deltaY) +"' style='fill: rgba(0,0,0, 0); stroke:rgb(203, 26, 31); stroke-width:1;' />" +
-                "<rect height='"+ (parseInt(tempMin[i])*deltaY) +"' width='10' style='fill: rgba(0,0,0,0); stroke : rgb(54, 28, 160); stroke-width: 1;' />" +
-                "<rect height='"+(parseInt(cumul[i])*deltaY)+"' width='10' style='fill: rgb(10, 117, 177); stroke-opacity: 0;' /> </g>";
-        xCursor = xCursor + deltaX;
-    }
-    graph.innerHTML = graph.innerHTML + "</svg>";
+function drawGraphTemperatureMin(){
+    var tmin = document.getElementsByClassName("tmin");
+    var height = parseInt(window.getComputedStyle(document.getElementById("graphtmin")).height, 10)-10;
+    for(var d = 0; d < tmin.length ; d++)
+    {
+		var t = parseFloat(tmin[d].textContent.trim())*3;
+		createRect("graphtmin", d*16+3, height/2 - t, 14, Math.abs(parseFloat(tmin[d].textContent.trim())*3), "", "rect", "");
+	}
 }
+
+function drawGraphTemperatureMax(){
+    var tmin = document.getElementsByClassName("tmax");
+    var height = parseInt(window.getComputedStyle(document.getElementById("graphtmax")).height, 10)-10;
+    
+    for(var d = 0; d < tmin.length ; d++)
+    {
+		var t = parseFloat(tmin[d].textContent.trim())*3;
+		createRect("graphtmax", d*16+3, height/2 - t, 14, Math.abs(t), "", "rect", "");
+	}
+}
+
 
 window.addEventListener("load", init);
