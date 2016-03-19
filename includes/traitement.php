@@ -8,7 +8,7 @@
                       "Mai"       => "05",
                       "Juin"      => "06",
                       "Juillet"   => "07",
-                      "Août"      => "08",
+                      "Aout"      => "08",
                       "Septembre" => "09",
                       "Octobre"   => "10",
                       "Novembre"  => "11",
@@ -57,6 +57,7 @@
                 }
                 
                 $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
+                echo "<!-- $filename -->";
                 $csvFile = fopen($filename, "r");
                 
                 if($csvFile)
@@ -171,6 +172,8 @@
                 $station = $_POST['stations'];
                 
                 $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
+                echo "<!-- $filename -->";
+                echo "<!-- ".$mounth." - ".$date[$mounth]." -->";
                 $csvFile = fopen($filename, "r");
                 
                 if($csvFile)
@@ -240,6 +243,7 @@
                         echo "</table>\n";            
                         echo "</div>";
                         
+                        echo "<div id='graphs' class='hidden'>";
                         echo "<h2>Température minimum</h2>";
 						echo '<svg id="graphtmin" xmlns="http://www.w3.org/2000/svg">
 							 </svg>';
@@ -247,7 +251,8 @@
 						echo "<h2>Température maximum</h2>";
 						echo '<svg id="graphtmax" xmlns="http://www.w3.org/2000/svg">
 							 </svg>';
-							 
+						echo "</div>";
+						
 						/*echo '<svg id="graphprec" height="400" width="400" xmlns="http://www.w3.org/2000/svg">
 							 </svg>';*/
 							 

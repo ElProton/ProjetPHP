@@ -10,28 +10,20 @@ function init()
 function relf()
 {
     var divrel = document.querySelector("div#releve");
-    var divgra = document.getElementsByClassName("graph");
+    var divgra = document.getElementById("graphs");
     
     divrel.className = "showed";
-    
-    for(var i = 0 ; i < divgra.length ; i++)
-		divgra[i].className = "graph hidden";
+    divgra.className = "hidden";
 }
 
 function graf()
 {
 	console.log("graf");
     var divrel = document.querySelector("div#releve");
-    var divgra = document.getElementsByClassName("graph");
-    console.log(divgra.length);
+    var divgra = document.getElementById("graphs");
     
     divrel.className = "hidden";
-    
-    for(var i = 0 ; i < divgra.length ; i++)
-    {
-		divgra[i].className = "showed";
-		console.log(i);
-	}
+    divgra.className = "showed";
 }
 
 window.addEventListener("load", init);
