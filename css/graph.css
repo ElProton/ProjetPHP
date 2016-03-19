@@ -1,0 +1,36 @@
+
+* {
+	font-family : sans-serif;
+}
+svg {
+	width : 400px;
+	height : 400px;
+	border : solid 1pt black;
+	background-color: white;
+}
+#dessin * {
+	fill-opacity : 0.7;
+}
+svg rect {
+	fill : lightblue;
+	stroke : black;
+}
+svg circle {
+	fill : red;
+}
+svg polygon {
+	fill : black;
+}
+line.axe {
+	stroke : grey;
+	stroke-width : 1;
+}
+line.marque {
+	stroke : grey;
+	stroke-width : 1;
+}
+svg text {
+	text-anchor : middle;
+	font-size:7pt;
+	
+}
