@@ -5,7 +5,6 @@ function init(){
 function draw()
 {
 	var graphs = document.querySelectorAll("svg");
-	console.log(graphs.length);
 	for(var i = 0 ; i < graphs.length ; i++)
 	{
 		var graph = graphs[i];
@@ -23,6 +22,7 @@ function draw()
 	}
 	drawGraphTemperatureMin();
 	drawGraphTemperatureMax();
+	drawGraphCumul();
 }
 
 function createLine(svgID, x1, y1, x2, y2, className, ID)
@@ -64,7 +64,12 @@ function drawGraphTemperatureMin(){
     for(var d = 0; d < tmin.length ; d++)
     {
 		var t = parseFloat(tmin[d].textContent.trim())*3;
-		createRect("graphtmin", d*12, (height/2), 11, -(parseFloat(tmin[d].textContent.trim())*3), "", "rectMin", "");
+		if (t< 0) {
+			createRect("graphtmin", d * 12, (height / 2), 11, Math.abs(t), "", "rectMin", "");
+		}
+		else{
+			createRect("graphtmin", d * 12, (height / 2) - Math.abs(t), 11, Math.abs(t), "", "rectMin", "");
+		}
 	}
 }
 
@@ -75,9 +80,24 @@ function drawGraphTemperatureMax(){
     for(var d = 0; d < tmin.length ; d++)
     {
 		var t = parseFloat(tmin[d].textContent.trim())*3;
-		createRect("graphtmax", d*12, (height/2) - Math.abs(t) , 11, Math.abs(t), "", "rectMax", "");
+		if (t< 0) {
+			createRect("graphtmax", d * 12, (height / 2), 11, Math.abs(t), "", "rectMax", "");
+		}
+		else{
+			createRect("graphtmax", d * 12, (height / 2) - Math.abs(t), 11, Math.abs(t), "", "rectMax", "");
+		}
 	}
 }
 
+function drawGraphCumul(){
+	var cumul = document.getElementsByClassName("cumul");
+	var height = parseInt(window.getComputedStyle(document.getElementById("graphcumul")).height, 10)-10;
+	for(var d = 0; d < cumul.length ; d++)
+	{
+		var t = parseFloat(cumul[d].textContent.trim())*3;
+		createRect("graphcumul", d * 12, (height / 2) - Math.abs(t), 11, Math.abs(t), "", "rectcumul", "");
+
+	}
+}
 
 window.addEventListener("load", init);
