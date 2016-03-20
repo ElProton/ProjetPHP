@@ -14,7 +14,22 @@ svg {
 svg rect {
 	fill : lightblue;
 	stroke : black;
+	stroke-width: 0;
 }
+.rectMax
+{
+	fill : red;
+	stroke: red;
+	stroke-width: 0;
+}
+
+.rectMin
+{
+	fill : blue;
+	stroke: blue;
+	stroke-width: 0;
+}
+
 svg circle {
 	fill : red;
 }
