@@ -18,7 +18,6 @@ function relf()
 
 function graf()
 {
-	console.log("graf");
     var divrel = document.querySelector("div#releve");
     var divgra = document.getElementById("graphs");
     
