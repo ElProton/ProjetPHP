@@ -243,18 +243,19 @@
                         echo "</table>\n";            
                         echo "</div>";
                         
-                        echo "<div id='graphs' class='hidden'>";
-                        echo "<h2>Température minimum</h2>";
-						echo '<svg id="graphtmin" xmlns="http://www.w3.org/2000/svg">
-							 </svg>';
+                        	echo "<div id='graphs' class='hidden'>";
+                        	echo "<h2>Température minimum</h2>";
+				echo '<svg id="graphtmin" xmlns="http://www.w3.org/2000/svg">
+					</svg>';
 						
-						echo "<h2>Température maximum</h2>";
-						echo '<svg id="graphtmax" xmlns="http://www.w3.org/2000/svg">
-							 </svg>';
-						echo "</div>";
-						
-						/*echo '<svg id="graphprec" height="400" width="400" xmlns="http://www.w3.org/2000/svg">
-							 </svg>';*/
+				echo "<h2>Température maximum</h2>";
+				echo '<svg id="graphtmax" xmlns="http://www.w3.org/2000/svg">
+					</svg>';
+				echo "<h2>Cumul des précipitations</h2>";
+				echo '<svg id="graphcumul" xmlns="http://www.w3.org/2000/svg">
+					</svg>';
+			echo "</div>";
+			
 							 
                     }
                     else
