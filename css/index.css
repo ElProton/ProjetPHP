@@ -70,7 +70,7 @@ footer
 {
     background-color: rgb(220, 220, 220);
     border: 5px solid rgb(200, 200, 200);
-    width: 45%;    
+    width: 45%;
     float: left;
     margin: 5px;
     padding: 20px 0px;
@@ -173,4 +173,21 @@ table tr td:nth-child(2n)
     margin-top: 10px;
     padding: 5px;
     cursor: pointer;
+}
+
+a:link {
+    color: #361ca0;
+    text-decoration: none;
+}
+a:visited {
+    color: #686dad;
+    text-decoration: none;
+}
+a:active {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    color: #2e9c37;
+    text-decoration: none;
 }
