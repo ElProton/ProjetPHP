@@ -64,7 +64,7 @@ function drawGraphTemperatureMin(){
     for(var d = 0; d < tmin.length ; d++)
     {
 		var t = parseFloat(tmin[d].textContent.trim())*3;
-		createRect("graphtmin", d*16+3, height/2 - t, 14, Math.abs(parseFloat(tmin[d].textContent.trim())*3), "", "rect", "");
+		createRect("graphtmin", d*12, (height/2), 11, -(parseFloat(tmin[d].textContent.trim())*3), "", "rectMin", "");
 	}
 }
 
@@ -75,7 +75,7 @@ function drawGraphTemperatureMax(){
     for(var d = 0; d < tmin.length ; d++)
     {
 		var t = parseFloat(tmin[d].textContent.trim())*3;
-		createRect("graphtmax", d*16+3, height/2 - t, 14, Math.abs(t), "", "rect", "");
+		createRect("graphtmax", d*12, (height/2) - Math.abs(t) , 11, Math.abs(t), "", "rectMax", "");
 	}
 }
 
