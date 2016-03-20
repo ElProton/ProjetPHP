@@ -11,22 +11,20 @@ svg {
 #dessin * {
 	fill-opacity : 0.7;
 }
-svg rect {
-	fill : lightblue;
-	stroke : black;
-	stroke-width: 0;
-}
+
 .rectMax
 {
 	fill : red;
-	stroke: red;
 	stroke-width: 0;
 }
 
 .rectMin
 {
 	fill : blue;
-	stroke: blue;
+	stroke-width: 0;
+}
+.rectcumul{
+	fill: lightblue;
 	stroke-width: 0;
 }
 
