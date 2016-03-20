@@ -179,11 +179,24 @@ table tr td:nth-child(2n)
     margin-top: 10px;
     padding: 5px;
     cursor: pointer;
+    border-style: outset;
+    border-color: #ff8dfe;
 }
 
 
-graph
-{
-    height: 250px;
-    width: 100%;
+a:link {
+    color: #b01fa5;
+    text-decoration: none;
+}
+a:visited {
+    color: #ffaaec;
+    text-decoration: none;
+}
+a:active {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    color: #c06891;
+    text-decoration: none;
 }
