@@ -36,3 +36,30 @@ img
     display: inline;
     margin: 10px 10px;
 }
+header
+{
+    background-image: url("../img/header.jpg");
+    padding: 5px 15px;
+    background-position: 0px 500px;
+}
+
+header p
+{
+    font-weight: bold;
+    font-size: 21pt;
+    color: white;
+    font-family: Arial;
+}
+
+footer
+{
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    background-color: rgb(10, 81, 150);
+    text-align: center;
+    color: white;
+
+}
+
+
