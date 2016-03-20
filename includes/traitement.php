@@ -183,7 +183,7 @@
                         $infoArray = fgetcsv( $csvFile, 1000, ";");
                         $infoArray = fgetcsv( $csvFile, 1000, ";");
                         
-                        echo "<div id='onglets'><span id='releves_onglet' class='onglet'>Relevés</span> <span class='onglet' id='graph_onglet'>Graphiques</span></div>";
+                        echo "<br /><div id='onglets'><span id='releves_onglet' class='onglet'>Relevés</span> <span class='onglet' id='graph_onglet'>Graphiques</span></div>";
                         echo "<div id='releve' class='showed'>";
                         echo "<table>\n";
                             echo "<thead>\n";
