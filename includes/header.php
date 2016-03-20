@@ -5,7 +5,7 @@
     $time = Date("d ").$MOUNTHS[intval(Date('n'))-1].Date(" Y"); 
        
     echo "<header>\n";
-    echo "<p>Vary-Météo<br/>\n";
+    echo "<p><a href = 'index.php'>Vary-Météo</a><br/>\n";
     echo "<time datetime=\"$datetime\">$time</time>\n";
     echo "</p>\n";
     echo "</header>\n";
