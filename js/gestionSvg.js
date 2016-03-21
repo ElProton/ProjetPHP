@@ -127,7 +127,7 @@ function drawGraphCumul(){
 	for(var d = 0; d < cumul.length ; d++)
 	{
 		var t = parseFloat(cumul[d].textContent.trim())*3;
-		createRect("graphcumul", d * 12, (height / 2) - Math.abs(t), 11, Math.abs(t), "", "rectcumul", "");
+		createRect("graphcumul", d * 12, ((height / 2) - Math.abs(t))*10, 11, Math.abs(t), "", "rectcumul", "");
 
 	}
 }
