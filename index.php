@@ -5,7 +5,6 @@
         <title>VaryMeteo - Back to the past meteo !</title>
         <link id="main_style" type="text/css" rel="stylesheet" href="css/index.css" />
         <link type="text/css" rel="stylesheet" href="css/leaflet.css" />
-        <link type="text/css" rel="stylesheet" href="css/graph.css" />
         
         <script src="js/leaflet-src.js"></script>
         <script src="js/formChoice.js"></script>

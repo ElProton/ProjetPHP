@@ -193,3 +193,53 @@ a:hover {
     color: #2e9c37;
     text-decoration: none;
 }
+
+
+* {
+    font-family : sans-serif;
+}
+svg {
+    width : 400px;
+    height : 400px;
+    border : solid 1pt black;
+    background-color: white;
+}
+#dessin * {
+    fill-opacity : 0.7;
+}
+
+.rectMax
+{
+    fill : red;
+    stroke-width: 0;
+}
+
+.rectMin
+{
+    fill : blue;
+    stroke-width: 0;
+}
+.rectcumul{
+    fill: lightblue;
+    stroke-width: 0;
+}
+
+svg circle {
+    fill : red;
+}
+svg polygon {
+    fill : black;
+}
+line.axe {
+    stroke : grey;
+    stroke-width : 1;
+}
+line.marque {
+    stroke : grey;
+    stroke-width : 1;
+}
+svg text {
+    text-anchor : middle;
+    font-size:7pt;
+
+}

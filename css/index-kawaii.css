@@ -200,3 +200,60 @@ a:hover {
     color: #c06891;
     text-decoration: none;
 }
+
+svg {
+    width : 400px;
+    height : 400px;
+    border : solid 1pt black;
+    background-color: white;
+}
+#dessin * {
+    fill-opacity : 0.7;
+}
+
+.rectMax
+{
+    fill : #f7ff14;
+    stroke-width: 0;
+}
+
+.rectMin
+{
+    fill : #ffa1c0;
+    stroke-width: 0;
+}
+.rectcumul{
+    fill: #4ce688;
+    stroke-width: 0;
+}
+
+svg circle {
+    fill : red;
+}
+svg polygon {
+    fill : black;
+}
+line.axe {
+    stroke : #915ef4;
+    stroke-width : 1;
+}
+line.marque {
+    stroke : #8d4fc3;
+    stroke-width : 1;
+}
+svg text {
+    text-anchor : middle;
+    font-size:7pt;
+
+}
+img
+{
+    width: 23%;
+    height: auto;
+}
+
+.listeimage
+{
+    display: inline;
+    margin: 10px 10px;
+}
