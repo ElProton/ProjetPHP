@@ -46,6 +46,7 @@ header time
 html
 {
     background-image: url("../img/bg-kawaii.jpg");
+    background-attachment: fixed;
     height: 100%;
 }
 
@@ -213,7 +214,7 @@ svg {
 
 .rectMax
 {
-    fill : #f7ff14;
+    fill : #3cffce;
     stroke-width: 0;
 }
 
