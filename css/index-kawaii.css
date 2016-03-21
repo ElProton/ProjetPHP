@@ -92,6 +92,16 @@ footer
     padding: 5px;
 }
 
+#credits
+{
+    float: right;
+    background-color: rgb(241, 154, 198);
+    border: 5px solid rgb(195, 46, 122);
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+}
+
 .clear
 {
     clear: both;
