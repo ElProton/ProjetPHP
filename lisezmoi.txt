@@ -1,0 +1,55 @@
++-----------------------------+
+| PROJET TECHNOLOGIE DU WEB 2 |
+|        VARY-MÉTÉO           |
+|      PAR LEFEBRE RYEN       |
+|            ET               |
+|      VAMOUR VALENTIN        |
++-----------------------------+
+
++------------------------------+
+| Quel est le but de ce site ? |
++------------------------------+------------------------------------+
+|                                                                   |
+| Ce site permet à son utilisateur de pouvoir consulter les données | 
+| météo des jours précédents telles que la température, les         | 
+| précipitations, et bien plus...                                   | 
+|                                                                   |
+| Nous avons essayé le plus possible des faire un site épuré et     |
+| simple, qui plus est toutes les images sont libres de droits (cf. |
+| le site web Pixabay).                                             |
+|                                                                   |
+| Tout le site est "rendue" sur une seule page: 'index.php', mais   |
+| plusieurs fichiers sont inclus, comme les fichiers 'header.php',  |
+| 'traitement.php' ou encore 'formulaireJour.php'.                  |
+|                                                                   |
+| Le projet a été réalisé dans son intégralité !                    |
+|                                                                   |
+|                                                                   |
++-------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+| Quels sont les limites ou les disfonctionnements ? |
++----------------------------------------------------+----------------+
+|                                                                     |
+| Le site propose des graphiques dans l'onglet "Graphique" lorsque    |
+| les données d'un mois sont demandées, mais ces graphiques ne        |
+| disposent nid'abscisses, ni d'ordonnées. De ce fait l'utilisateur   |
+| ne peut pas se repérer dans le graphique.                           |
+|                                                                     |
++---------------------------------------------------------------------+
+
+
++-------+
+| BONUX |
++-------+-------------------------------------------------------------+
+|                                                                     |
+| Un petit bonus est disponible sur le site:                          |
+|                                                                     |
+| Sur une page du site web, il vous suffit de faire la combnaison de  |
+| touches suivante:                                                   |
+| HAUT HAUT BAS BAS GAUCHE DROITE GAUCHE DROITE B A                   |
+|                                                                     |
+| Et voyez ce qu'il se passe :3                                       |
+|                                                                     |
++---------------------------------------------------------------------+
