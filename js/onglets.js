@@ -1,3 +1,6 @@
+/*
+ * Initialize the vent listeners
+ */
 function init()
 {
     var rel = document.getElementById("releves_onglet");
@@ -7,6 +10,9 @@ function init()
     gra.addEventListener("mousedown", graf);
 }
 
+/*
+ * Show the array with datas and hide graphs
+ */
 function relf()
 {
     var divrel = document.querySelector("div#releve");
@@ -16,6 +22,9 @@ function relf()
     divgra.className = "hidden";
 }
 
+/*
+ * Show the graphs and hide array of datas
+ */
 function graf()
 {
     var divrel = document.querySelector("div#releve");

@@ -1,9 +1,21 @@
 var step = 0;
 
+/*
+ * Function that initialize the eventLIstener
+ */
 function init(){
     document.addEventListener('keydown', woof);
 }
 
+/*
+ * Thanks to this function, you can see an easter eggs with the "Konami Code"
+ * 
+ * Konami Code is a step by step code with the keyboard:
+ * "Up Up Down DOwn Left Right Left Right B A"
+ * 
+ * And see what happen... ;)
+ * 
+ */
 function woof(event) {
     // UP    = 38
     // DOWN  = 40

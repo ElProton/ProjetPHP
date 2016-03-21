@@ -1,6 +1,10 @@
 <?php
     if(isset($_POST['submit_jour']) || isset($_POST['submit_mois']) || isset($_GET['stations']))
     {
+        /*
+         * Associate a moutnh in String with the number of the mounth in String (which is 
+         *  characters)
+         */
         $date = Array("Janvier"   => "01", 
                       "Février"   => "02",
                       "Mars"      => "03",
@@ -13,7 +17,9 @@
                       "Octobre"   => "10",
                       "Novembre"  => "11",
                       "Décembre"  => "12");
-                      
+        /*
+         * Associate an option with a int that represent its index in the csv file
+         */              
         $options = Array("température" => 7,
                          "directionVent" => 5,
                          "vitesseVent" => 6,
@@ -23,7 +29,9 @@
                          "pression" => 20,
                          "pointRosée" => 8,
                          "hauteurNeige" => 34);      
-                                
+        /*
+         * Associate an option with another String to display to the user
+         */                        
         $optionsLabel = Array("température" => "Température",
                          "directionVent" => "Direction du vent",
                          "vitesseVent" => "Vitesse du vent",
@@ -33,14 +41,16 @@
                          "pression" => "Pression",
                          "pointRosée" => "Point de rosée",
                          "hauteurNeige" => "Hauteur de neige"); 
-                         
+        
+        //If there is a post or a GET request that is a day request...
         if(isset($_POST['submit_jour']) || isset($_GET['type']) && $_GET['type'] == "jour")
         {
+            //... So we check if there is the require POST or GET values
             if( (isset($_POST['day']) && isset($_POST['mounth']) && isset($_POST['year']) && isset($_POST['stations']))
             ||
                 (isset($_GET['day'])&& isset($_GET['mounth'])&& isset($_GET['year'])&& isset($_GET['stations'])))
             {
-                
+                //We get the values
                 if(isset($_POST['day']))
                 {
                     $day = $_POST['day'];
@@ -56,10 +66,12 @@
                     $station = $_GET['stations'];         
                 }
                 
+                //We download and use the file
                 $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
                 echo "<!-- $filename -->";
                 $csvFile = fopen($filename, "r");
                 
+                //If the CSV file is open
                 if($csvFile)
                 {
                     $infoArray = fgetcsv( $csvFile, 1000, ";");
@@ -71,15 +83,17 @@
                     
             
                     
-                    
+                    //While there are datas in the array
                     while($infoArray != NULL)
                     {
+                        //We check if the station and the day are correct as the user request...
                         if($infoArray[0] == $station && $day == substr($infoArray[1], 6, 2))
                         {
                             echo "<tr>\n";
                             echo "<td>".substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2)."</td>";
                             echo "<td>";
                             
+                            //... And of so, we display the requested option
                             foreach($options as $key => $value)
                             {
                                 if($_POST[$key]
@@ -149,35 +163,39 @@
                     echo "</table>\n";
                     
                 }
-                else
+                else //If the CSV file si not found..
                 {
                     echo "<!-- csv file not found. -->";
                     echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
                 }
 
             }
-            else
+            else //If a POST or GET is missing
             {
                 echo "<!-- All posts are not there -->";
                 echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";
             }
         }
+        //... Else if there is a POST or GET for a mounth
         else if(isset($_POST['submit_mois']) || isset($_GET['type']) && $_GET['type'] == "mois")
         {
-            //Mois
+            //If there is the require datas
             if(isset($_POST['mounth']) && isset($_POST['year']))
             {
+                //We get the datas
                 $mounth  = $_POST['mounth'];
                 $year    = $_POST['year'];
                 $station = $_POST['stations'];
                 
+                
+                //We download the csv file
                 $filename = "compress.zlib://https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.".$year.$date[$mounth].".csv.gz";
-                echo "<!-- $filename -->";
-                echo "<!-- ".$mounth." - ".$date[$mounth]." -->";
                 $csvFile = fopen($filename, "r");
                 
+                //If the csv file is found
                 if($csvFile)
                 {
+                    //And if so, we display datas
                     if($date[$mounth] != Date("m") || $year != Date("Y"))
                     { 
                         $infoArray = fgetcsv( $csvFile, 1000, ";");
@@ -258,34 +276,35 @@
 			
 							 
                     }
-                    else
+                    else //If the mounth is not over, we display an error
                     {
                             echo "<!-- Mounth is not finish. $year == ".Date("Y")."-->";
                             echo "<p>Vous ne pouvez pas demander les rélévés d'un mois non terminé !<br/></p>";
                             echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";                    
                     }                
                 }
-                else
+                else //If there isn't the csv file
+                
                 {
                     echo "<!-- csv file not found. -->";
                     echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";  
                 }
 
             }
-            else
+            else // If there isn't all the require datas
             {
                 echo "<!-- All posts are not there -->";
                 echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";                
             }
         }
-        else
+        else //If the type is not 'jour' (day) or 'mois' (mounth)
         {
             echo "<!-- Unknown type of form -->";
             echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";            
         }
         
     }
-    else
+    else //If there isn't any POST or GET
     {
         echo "<!-- No posts were sent -->";
         echo "<p>Veuillez faire une recherche dans le formulaire de gauche.</p>";

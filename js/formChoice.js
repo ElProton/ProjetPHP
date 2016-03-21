@@ -1,3 +1,6 @@
+/*
+ * Initialize the event listeners
+ */
 function init()
 {
     var select = document.querySelector("section p select");
@@ -7,6 +10,9 @@ function init()
 
 }
 
+/*
+ * Redirect the users when they change the type of the form
+ */
 function changeSelect()
 {
     var form = document.getElementById('formulaire');
