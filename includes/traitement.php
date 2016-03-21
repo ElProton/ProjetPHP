@@ -224,9 +224,14 @@
                         {
                             echo "<td><a href=\"index.php?type=jour&stations=$station&day=$day&mounth=$mounth&year=$year\">".$day." ".$mounth." ".$year."</a></td>";
                             
-                            $hour = "00h00";
+                            if($day < 10)
+                                $currentD = "".$year."".$date[$mounth]."0".$day."";
+                            else
+                                $currentD = "".$year."".$date[$mounth].$day."";
+                                
+                            $testD = substr($infoArray[1], 0, 8);
                             
-                            while($hour != "21h00")
+                            while($currentD == $testD && $infoArray != NULL)
                             {
                                 if($infoArray[0] == $station)
                                 {
@@ -240,11 +245,11 @@
                                     if($temperature > $tmax)
                                         $tmax = $temperature;
                                         
-                                    $hour = substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2);
-                                    
                                     
                                 }
+                                
                                 $infoArray = fgetcsv( $csvFile, 1000, ";");
+                                $testD = substr($infoArray[1], 0, 8);
                             }
                             
                             echo "<td class='tmin'>".sprintf("%7.2f" ,floatval($tmin))."°C </td>";
