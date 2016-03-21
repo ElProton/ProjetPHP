@@ -11,12 +11,14 @@
 	$csvFile = fopen("https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/postesSynop.csv", "r");
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
 	$stationArray = fgetcsv( $csvFile, 1000, ";");
-    
+	// create select to the stations    
 	while ($stationArray != NULL){
 		echo "<option data-insee='".$stationArray[0]."' data-lon='".$stationArray[3]."' data-lat='".$stationArray[2]."' value='".$stationArray[0]."' > ".$stationArray[1]."</option>";
 		$stationArray = fgetcsv( $csvFile, 1000, ";");
 	}
 	echo " </select> <br />";
+	//
+	// create the day's selected
 	echo "<label> Date : </label>";
 	echo "<select name='mounth'>";
 	foreach ($MOUNTHS as $mounths){
@@ -28,6 +30,7 @@
 		echo "<option value = '".$i."'> ".$i." </option>";
 	}
 	echo "</select> <br />";
+	//
 	echo "<B> Relevés proposés par la requête :</B>";
     echo "<ul>";
         echo "<li>";
