@@ -2,6 +2,9 @@ function init(){
     draw();
 }
 
+/**
+ * Draw all the elements for the three graphs
+ */
 function draw()
 {
 	var graphs = document.querySelectorAll("svg");
@@ -25,6 +28,16 @@ function draw()
 	drawGraphCumul();
 }
 
+/**
+ * Create a line
+ * @param svgID the id of the svg block
+ * @param x1 the first x's coordinates
+ * @param y1 the first y's coordinates
+ * @param x2 the second x's coordinates
+ * @param y2 the second y's coordinates
+ * @param className the class name of the line
+ * @param ID a id for the line
+ */
 function createLine(svgID, x1, y1, x2, y2, className, ID)
 {
 	var svg = document.getElementById(svgID)
@@ -41,6 +54,17 @@ function createLine(svgID, x1, y1, x2, y2, className, ID)
 	
 }
 
+/**
+ * Create a square
+ * @param svgID the id of the svg block
+ * @param x the x coordinate
+ * @param y the y coordinate
+ * @param width the width
+ * @param height the height
+ * @param transform a transform attribute
+ * @param className the class for the square
+ * @param ID the ID for the square
+ */
 function createRect(svgID, x, y, width, height, transform, className, ID)
 {
 	var svg = document.getElementById(svgID)
@@ -57,7 +81,9 @@ function createRect(svgID, x, y, width, height, transform, className, ID)
 	svg.appendChild(line);	
 }
 
-
+/**
+ * Draw the graph to the max temperature
+ */
 function drawGraphTemperatureMin(){
     var tmin = document.getElementsByClassName("tmin");
     var height = parseInt(window.getComputedStyle(document.getElementById("graphtmin")).height, 10)-10;
@@ -73,6 +99,9 @@ function drawGraphTemperatureMin(){
 	}
 }
 
+/**
+ * Draw the graph to the min temperature
+ */
 function drawGraphTemperatureMax(){
     var tmin = document.getElementsByClassName("tmax");
     var height = parseInt(window.getComputedStyle(document.getElementById("graphtmax")).height, 10)-10;
@@ -89,6 +118,9 @@ function drawGraphTemperatureMax(){
 	}
 }
 
+/**
+ * Draw the graph to the precipitation
+ */
 function drawGraphCumul(){
 	var cumul = document.getElementsByClassName("cumul");
 	var height = parseInt(window.getComputedStyle(document.getElementById("graphcumul")).height, 10)-10;
