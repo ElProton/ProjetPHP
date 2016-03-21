@@ -23,7 +23,7 @@
         $options = Array("température" => 7,
                          "directionVent" => 5,
                          "vitesseVent" => 6,
-                         "précipitations" => 36,
+                         "précipitations" => 40,
                          "humidité" => 9,
                          "nébulosité" => 14,
                          "pression" => 20,
@@ -93,7 +93,7 @@
                             echo "<td>".substr($infoArray[1], 8, 2)."h".substr($infoArray[1], 10, 2)."</td>";
                             echo "<td>";
                             
-                            //... And of so, we display the requested option
+                            //... And if so, we display the requested option
                             foreach($options as $key => $value)
                             {
                                 if($_POST[$key]
