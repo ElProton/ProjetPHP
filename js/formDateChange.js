@@ -13,6 +13,11 @@ function init(){
     Date[1].addEventListener("change", changeDay);
 }
 
+/**
+ * Give if the year is bis or not
+ * @param year the year(int)
+ * @returns {boolean} True if is bisextile
+ */
 function isBis(year) {
     if ((year%4) == 0){
         if ((year%100) == 0){
@@ -29,7 +34,10 @@ function isBis(year) {
 }
 
 
-
+/**
+ * Change the nb of days which the date change
+ * @param event a date change
+ */
 function changeDay(event){
     var Date = document.getElementsByClassName('dateChange');
     var mois = Date[0];
